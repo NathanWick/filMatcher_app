@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const TopBar = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const [isOpen, setIsOpen] = useState(false);
+  
     // Inside your component
     const navigate = useNavigate();
 
@@ -38,9 +39,10 @@ const TopBar = () => {
                 <a href="/about" className="block px-4 py-2 text-sm hover:bg-gray-200">About</a>
                 <a href="/profile" className="block px-4 py-2 text-sm hover:bg-gray-200">Profile</a>
                 <a href="/logout" className="block px-4 py-2 text-sm hover:bg-gray-200" onClick={(e) => {
-                    e.preventDefault();
-                    // Add your logout logic here if any
-                    navigate('/login');
+                  e.preventDefault();
+                  // Delete the token from local storage
+                  localStorage.removeItem('token');
+                  navigate('/login');
                 }}>Logout</a>
               </div>
             )}
@@ -53,9 +55,7 @@ const TopBar = () => {
               <a href="/matches" className="text-lg hover:bg-yellow-200 px-2 py-1 rounded-2xl">Matches</a>
               <a href="/about" className="text-lg hover:bg-yellow-200 px-2 py-1 rounded-2xl">About</a>
               <a href="/profile" className="text-lg hover:bg-yellow-200 px-2 py-1 rounded-2xl">Profile</a>
-              <a href="/logout" className="text-lg hover:bg-yellow-200 px-2 py-1 rounded-2xl" onClick={(e) => {                    
-                    navigate('/login');
-                }}>Logout</a>
+              <a href="/logout" className="text-lg hover:bg-yellow-200 px-2 py-1 rounded-2xl">Logout</a>
             </div>
           )}
       </nav>

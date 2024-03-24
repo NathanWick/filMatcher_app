@@ -66,3 +66,16 @@ code {
     transform: translate(-100vw, 50vh) scale(0.5);
   }
 }
+
+@keyframes moving-lights {
+    0% { box-shadow: 0 0 7px 3px red; }
+    25% { box-shadow: 0 0 7px 3px yellow; }
+    50% { box-shadow: 0 0 7px 3px green; }
+    75% { box-shadow: 0 0 7px 3px blue; }
+    100% { box-shadow: 0 0 7px 3px red; }
+}
+
+.moving-lights-border {
+    box-shadow: 0 0 7px 3px red;
+    animation: moving-lights 2s linear infinite;
+}

@@ -8,6 +8,8 @@ import Matches from './Matches';
 import Ratings from './Ratings';
 import About from './About';
 import Profile from './Profile';
+import MovieDetails from './MovieDetails';
+import Logout from './Logout';
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/logout" element={<Navigate to="/login" />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/:title/:year" element={<MovieDetails />} />
         {/* Other routes go here */}
       </Routes>
     </Router>
